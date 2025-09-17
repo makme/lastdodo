@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Studio Name — Tattoo & Piercing</title>
+  <meta name="description" content="Custom tattoos, safe piercings, and permanent makeup. By‑piece pricing. Book a consult in the East Bay." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta property="og:title" content="Studio Name — Tattoo & Piercing" />
+  <meta property="og:description" content="Custom tattoos, safe piercings, and permanent makeup. By‑piece pricing." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/social-card.jpg" />
+  <style>
+    :root{
+      --bg:#0b0b0b;--panel:#121212;--ink:#eaeaea;--muted:#b3b3b3;--line:#262626;--accent:#ffffff;--accent-2:#d4d4d4;
+      --radius:18px;--shadow:0 10px 30px rgba(0,0,0,.35)
+    }
+    *{box-sizing:border-box}html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Inter,Helvetica,Arial,sans-serif}
+    a{color:var(--ink);text-decoration:none}
+    .container{max-width:1120px;margin:0 auto;padding:0 20px}
+    .btn{display:inline-block;padding:12px 18px;border-radius:14px;background:var(--accent);color:#111;font-weight:700}
+    .btn.ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}
+    header{position:sticky;top:0;z-index:50;background:rgba(11,11,11,.7);backdrop-filter:saturate(120%) blur(8px);border-bottom:1px solid var(--line)}
+    .nav{height:64px;display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:10px;align-items:center}
+    .logo{width:36px;height:36px;border-radius:12px;background:#1c1c1c;display:grid;place-items:center}
+    .menu{display:flex;gap:18px;align-items:center}
+    .menu a{color:var(--muted)}.menu a:hover{color:var(--ink)}
+    .hamburger{display:none}
+    @media (max-width:900px){.menu{display:none}.hamburger{display:block}}
+
+    /* Sections */
+    section{padding:80px 0;border-top:1px solid var(--line)}
+    #hero{position:relative;padding:120px 0 100px;border-top:none}
+    #hero .back{position:absolute;inset:0;z-index:-1;opacity:.25;background:url('https://images.unsplash.com/photo-1600948836101-f9ffda59d250?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat}
+    #hero .scrim{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,10,.6),var(--bg) 70%);z-index:-1}
+    h1{font-size:clamp(34px,5vw,56px);line-height:1.05;margin:0 0 12px;font-weight:900}
+    h2{font-size:clamp(26px,3.2vw,36px);line-height:1.15;margin:0 0 16px;font-weight:900}
+    h3{margin:0 0 8px;font-size:18px}
+    p.lead{color:var(--muted);font-size:18px;max-width:720px}
+    .badges{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));margin-top:24px}
+    .badge{display:flex;gap:10px;align-items:center;color:var(--muted)}
+
+    /* Cards & grids */
+    .grid-3{display:grid;gap:18px;grid-template-columns:repeat(3,1fr)}
+    .grid-2{display:grid;gap:18px;grid-template-columns:repeat(2,1fr)}
+    @media (max-width:900px){.grid-3,.grid-2{grid-template-columns:1fr}}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+    .card img{width:100%;height:200px;object-fit:cover}
+    .card .pad{padding:18px}
+    .list{margin:12px 0 0;padding:0 0 0 18px;color:var(--muted)}
+
+    /* Gallery masonry */
+    .masonry{columns:3 280px;column-gap:14px}
+    .shot{break-inside:avoid;margin:0 0 14px;border-radius:16px;border:1px solid var(--line);overflow:hidden}
+    .shot img{width:100%;display:block}
+
+    /* Pricing */
+    .price-grid{display:grid;gap:18px;grid-template-columns:repeat(2,1fr)}
+    @media (max-width:900px){.price-grid{grid-template-columns:1fr}}
+    .price .row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px dashed #2b2b2b;color:var(--muted)}
+
+    /* FAQ */
+    details{border-top:1px solid var(--line)}
+    summary{cursor:pointer;padding:16px 4px;font-weight:700}
+    details[open] summary{color:var(--accent-2)}
+    details .faq-pad{padding:0 4px 16px;color:var(--muted)}
+
+    /* Form */
+    form{display:grid;gap:12px}
+    .row{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
+    @media (max-width:700px){.row{grid-template-columns:1fr}}
+    label{display:block;font-size:14px;color:var(--muted);margin-bottom:6px}
+    input,select,textarea{width:100%;background:#0f0f0f;border:1px solid var(--line);color:var(--ink);padding:12px 12px;border-radius:12px;outline:none}
+    textarea{min-height:120px}
+    .note{font-size:12px;color:#9a9a9a}
+
+    footer{border-top:1px solid var(--line);padding:40px 0;color:var(--muted)}
+    .pill{display:inline-block;border:1px solid var(--line);padding:6px 10px;border-radius:999px;color:var(--muted);font-size:12px}
+
+    /* Mobile nav */
+    #mobile{display:none;position:fixed;inset:0;background:rgba(10,10,10,.95);padding:18px}
+    #mobile a{display:block;padding:14px;border-bottom:1px solid #1f1f1f;color:var(--muted)}
+    #mobile .close{position:absolute;top:12px;right:14px}
+  </style>
+  <script>
+    function openMenu(){document.getElementById('mobile').style.display='block'}
+    function closeMenu(){document.getElementById('mobile').style.display='none'}
+    function handleSubmit(e){e.preventDefault();alert('Thanks! We\'ll email you shortly to confirm.')} 
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TattooParlor",
+    "name": "Studio Name",
+    "address": {"@type":"PostalAddress","streetAddress":"1234 First St, Suite 28","addressLocality":"Livermore","addressRegion":"CA","postalCode":"94550","addressCountry":"US"},
+    "telephone": "+1-555-555-5555",
+    "openingHours": "Tu-Sa 11:00-19:00",
+    "url": "https://example.com",
+    "priceRange": "$$",
+    "sameAs": ["https://instagram.com/yourhandle"]
+  }
+  </script>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <a class="brand" href="#home"><span class="logo">🗡️</span>
+        <div>
+          <div style="font-weight:900;letter-spacing:.06em">STUDIO NAME</div>
+          <div style="font-size:12px;color:var(--muted)">Tattoo • Piercing • PMU</div>
+        </div>
+      </a>
+      <nav class="menu">
+        <a href="#services">Services</a>
+        <a href="#artists">Artists</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="btn">Book Now</a>
+      </nav>
+      <button class="hamburger btn ghost" onclick="openMenu()">☰</button>
+    </div>
+    <div id="mobile">
+      <button class="close btn" onclick="closeMenu()">✖ Close</button>
+      <a href="#services" onclick="closeMenu()">Services</a>
+      <a href="#artists" onclick="closeMenu()">Artists</a>
+      <a href="#gallery" onclick="closeMenu()">Gallery</a>
+      <a href="#pricing" onclick="closeMenu()">Pricing</a>
+      <a href="#faq" onclick="closeMenu()">FAQ</a>
+      <a href="#contact" class="btn" onclick="closeMenu()">Book Now</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home">
+    <div id="hero">
+      <div class="back"></div><div class="scrim"></div>
+      <div class="container">
+        <h1>Custom Tattoos & Safe Piercings</h1>
+        <p class="lead">Fine‑line, color, and floral tattoos. Professional piercings with sterile, implant‑grade jewelry. We price <strong>by the piece</strong> — not hourly — so you always know your total.</p>
+        <div style="display:flex;gap:10px;margin-top:18px">
+          <a class="btn" href="#gallery">View Gallery</a>
+          <a class="btn ghost" href="#contact">Get a Quote</a>
+        </div>
+        <div class="badges">
+          <div class="badge">🧼 Hospital‑grade sterilization</div>
+          <div class="badge">✨ Single‑use needles & barriers</div>
+          <div class="badge">📍 Livermore • East Bay, CA</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <div class="container">
+      <h2>Services</h2>
+      <div class="grid-3">
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1200&auto=format&fit=crop" alt="Tattoo" />
+          <div class="pad">
+            <h3>Custom Tattoo</h3>
+            <p class="muted">Fine‑line, color, floral, micro‑realism. Consult included.</p>
+            <ul class="list">
+              <li>Concept & placement guidance</li>
+              <li>Saniderm or wrap included</li>
+              <li>By‑piece pricing</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1601643157091-ce5c6651798a?q=80&w=1200&auto=format&fit=crop" alt="Piercing" />
+          <div class="pad">
+            <h3>Body Piercing</h3>
+            <p class="muted">Lobes, helix, conch, nostril, septum, navel, and more.</p>
+            <ul class="list">
+              <li>Implant‑grade titanium/solid gold</li>
+              <li>Autoclave cycles logged</li>
+              <li>Aftercare kit included</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card">
+          <img src="https://images.unsplash.com/photo-1542835469-5325d8733d71?q=80&w=1200&auto=format&fit=crop" alt="Permanent Makeup" />
+          <div class="pad">
+            <h3>Permanent Makeup</h3>
+            <p class="muted">Brows & Lip Blush by trainer; student options available.</p>
+            <ul class="list">
+              <li>Patch test on request</li>
+              <li>Natural‑looking results</li>
+              <li>Clear pre‑/post‑care</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Artists -->
+  <section id="artists">
+    <div class="container">
+      <h2>Artists</h2>
+      <div class="grid-2">
+        <div class="card"><img src="https://images.unsplash.com/photo-1544006659-f0b21884ce1d?q=80&w=1200&auto=format&fit=crop" alt="Artist" /><div class="pad"><h3>Annie (Alina) — Lead Tattoo Artist</h3><p class="muted">Fine‑line and color botanicals. 7+ years professional. Special care for delicate placements.</p></div></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1546525848-3ce03ca516f6?q=80&w=1200&auto=format&fit=crop" alt="Piercer" /><div class="pad"><h3>Mike — Piercing Specialist</h3><p class="muted">Precision placement and gentle technique. Jewelry curation for your anatomy.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <div class="container">
+      <h2>Gallery</h2>
+      <div class="masonry">
+        <div class="shot"><img src="https://images.unsplash.com/photo-1542773667-9f4f2f8b9a5b?q=80&w=1200&auto=format&fit=crop" alt="Work 1"></div>
+        <div class="shot"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?q=80&w=1200&auto=format&fit=crop" alt="Work 2"></div>
+        <div class="shot"><img src="https://images.unsplash.com/photo-1551727974-8af20a3322e1?q=80&w=1200&auto=format&fit=crop" alt="Work 3"></div>
+        <div class="shot"><img src="https://images.unsplash.com/photo-1515468381879-40d0ded81016?q=80&w=1200&auto=format&fit=crop" alt="Work 4"></div>
+        <div class="shot"><img src="https://images.unsplash.com/photo-1554614971-8df8163a9a9f?q=80&w=1200&auto=format&fit=crop" alt="Work 5"></div>
+        <div class="shot"><img src="https://images.unsplash.com/photo-1544273677-0bdda67f4f9d?q=80&w=1200&auto=format&fit=crop" alt="Work 6"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section id="pricing">
+    <div class="container">
+      <h2>Pricing</h2>
+      <div class="price-grid">
+        <div class="card price"><div class="pad">
+          <h3>Tattoo — By Piece</h3>
+          <p class="muted">Transparent pricing based on size, complexity, placement, and color.</p>
+          <div class="row"><span>Mini (up to 2")</span><strong>$120–$220</strong></div>
+          <div class="row"><span>Small (2–4")</span><strong>$220–$420</strong></div>
+          <div class="row"><span>Medium (4–6")</span><strong>$420–$780</strong></div>
+          <div class="row"><span>Large custom</span><strong>Quoted</strong></div>
+          <p class="note">Deposits apply to final price. Touch‑ups within 8 weeks: complimentary for simple pieces.</p>
+        </div></div>
+        <div class="card price"><div class="pad">
+          <h3>Piercing</h3>
+          <div class="row"><span>Lobes (each / pair)</span><strong>$40 / $70 + jewelry</strong></div>
+          <div class="row"><span>Helix / Conch / Tragus</span><strong>$60 + jewelry</strong></div>
+          <div class="row"><span>Nostril / Septum</span><strong>$70 + jewelry</strong></div>
+          <div class="row"><span>Navel</span><strong>$80 + jewelry</strong></div>
+          <p class="note">ID required for all clients; minors need parent/guardian with matching ID.</p>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ / Policies -->
+  <section id="faq">
+    <div class="container">
+      <h2>FAQ & Policies</h2>
+      <details open>
+        <summary>New tattoo aftercare</summary>
+        <div class="faq-pad"><ul class="list"><li>Leave bandage 2–4 hours, then wash with fragrance‑free soap.</li><li>Pat dry; apply a thin unscented ointment 2× daily for 3–5 days, then switch to light lotion.</li><li>Avoid sun, pools, saunas for 2 weeks.</li></ul></div>
+      </details>
+      <details>
+        <summary>Piercing aftercare</summary>
+        <div class="faq-pad"><ul class="list"><li>Saline rinse 2× daily; no alcohol/peroxide.</li><li>No touching/rotating; change bedding regularly.</li><li>Healing: lobes 6–8w; cartilage/nose 3–6m+. We’ll advise before downsizing posts.</li></ul></div>
+      </details>
+      <details>
+        <summary>Deposits & rescheduling</summary>
+        <div class="faq-pad"><p class="muted">$20–$100 deposit applies to your total. 24‑hour notice to reschedule. Late/no‑shows forfeit deposit.</p></div>
+      </details>
+      <details>
+        <summary>Permanent makeup policies</summary>
+        <div class="faq-pad"><ul class="list"><li>No Botox 10 days before/after brows.</li><li>No fillers 30 days before/after lip blush.</li><li>Please tell us about blood‑thinning medications; patch test available.</li></ul></div>
+      </details>
+    </div>
+  </section>
+
+  <!-- Contact / Booking -->
+  <section id="contact">
+    <div class="container">
+      <h2>Book a Consult</h2>
+      <p class="muted">Tell us your idea (size, placement, style). We’ll reply with availability and a piece quote.</p>
+      <form onsubmit="handleSubmit(event)">
+        <div class="row">
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" placeholder="Your full name" required />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="you@email.com" required />
+          </div>
+        </div>
+        <div class="row">
+          <div>
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" type="tel" placeholder="(555) 555‑5555" />
+          </div>
+          <div>
+            <label for="service">Service</label>
+            <select id="service" name="service">
+              <option value="Tattoo">Tattoo</option>
+              <option value="Piercing">Piercing</option>
+              <option value="PMU">Permanent Makeup</option>
+            </select>
+          </div>
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Describe your idea, size (inches), placement, and preferred dates."></textarea>
+        </div>
+        <button class="btn" type="submit">Send Request</button>
+        <p class="note">By submitting, you agree to our studio policies.</p>
+      </form>
+
+      <div style="margin-top:24px" class="grid-2">
+        <div class="card"><div class="pad">
+          <h3>Studio Name — Livermore</h3>
+          <p class="muted">1234 First St, Suite 28, Livermore, CA</p>
+          <p class="muted">Open: Tue–Sat 11:00–19:00</p>
+          <div style="display:flex;gap:10px;margin-top:10px">
+            <a class="pill" href="tel:+15555555555">Call</a>
+            <a class="pill" href="mailto:studio@example.com">Email</a>
+            <a class="pill" href="#">Instagram</a>
+          </div>
+        </div></div>
+        <div class="card"><img src="https://images.unsplash.com/photo-1549570652-97324981a6fd?q=80&w=1600&auto=format&fit=crop" alt="Studio interior"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+        <div>
+          <div style="font-weight:900;letter-spacing:.06em;color:var(--ink)">STUDIO NAME</div>
+          <div class="note">Specializing in fine‑line color, safe piercings, and PMU. East Bay, CA.</div>
+        </div>
+        <div class="note">© <span id="year"></span> Studio Name. All rights reserved.</div>
+      </div>
+    </div>
+    <script>document.getElementById('year').textContent=new Date().getFullYear()</script>
+  </footer>
+</body>
+</html>
